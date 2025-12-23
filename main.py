@@ -51,6 +51,9 @@ def scrape_jobs():
     print("[STEP 1] Scraping Jobs...")
     print("="*50)
 
+    if not APIFY_API_TOKEN:
+        raise ValueError("APIFY_API_TOKEN environment variable is not set!")
+
     client = ApifyClient(APIFY_API_TOKEN)
 
     # Build OR query from all search terms
